@@ -1,0 +1,7 @@
+from django.urls import path
+
+from .views import get_recipe
+
+urlpatterns = [
+  path('recipes', get_recipe, name = 'get_recipe')
+]
