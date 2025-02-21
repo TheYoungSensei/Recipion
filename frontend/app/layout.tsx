@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
-import ReactQueryProvider from "./utils/providers/reactQueryProvider";
+import { ColorSchemeScript, MantineProvider, mantineHtmlProps } from '@mantine/core';
 import { Geist, Geist_Mono } from "next/font/google";
+
+
+import ReactQueryProvider from "./utils/providers/reactQueryProvider";
+
+import '@mantine/core/styles.css';
 import "./globals.css";
 
 const geistSans = Geist({
@@ -25,11 +30,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <ColorSchemeScript />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ReactQueryProvider>
-          {children}
+          <MantineProvider>
+            {children}
+          </MantineProvider>
         </ReactQueryProvider>
       </body>
     </html>
