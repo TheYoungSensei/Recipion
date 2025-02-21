@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { ColorSchemeScript, MantineProvider, mantineHtmlProps } from '@mantine/core';
+import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import { Geist, Geist_Mono } from "next/font/google";
 
 
 import ReactQueryProvider from "./utils/providers/reactQueryProvider";
+import Header from "./components/Header";
 
 import '@mantine/core/styles.css';
 import "./globals.css";
@@ -38,6 +39,7 @@ export default function RootLayout({
       >
         <ReactQueryProvider>
           <MantineProvider>
+            <Header />
             {children}
           </MantineProvider>
         </ReactQueryProvider>
