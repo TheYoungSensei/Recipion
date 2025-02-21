@@ -1,9 +1,10 @@
 import { QueryClient, dehydrate } from "@tanstack/react-query"
-import RecipeList from "../components/RecipeList"
+
+import RecipeListContainer from "../ui/RecipeList"
 import { fetchRecipes } from "../hooks/useRecipes"
 
 export default async function Page() {
-  return <RecipeList />
+  return <RecipeListContainer />
 }
 
 export async function generateStaticParams() {
