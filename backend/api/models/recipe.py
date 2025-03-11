@@ -10,7 +10,7 @@ class Recipe(models.Model):
   stars = models.IntegerField()
   title = models.CharField(max_length=256)
   sub_title = models.CharField(max_length=256)
-  cover_image = models.CharField(max_length=1024) # Path to the image.
+  cover_image = models.ImageField('images')
   text = models.CharField(max_length=2058)
   origin = models.CharField(max_length=50, choices=OriginChoices, default=OriginChoices.BE)
 
