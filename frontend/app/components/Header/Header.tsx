@@ -103,7 +103,7 @@ export const Header = () => {
   ));
 
   return (
-    <Box pb={120}>
+    <Box  style={{ marginBottom: 16, paddingBottom: 0 }}>
       <header className={classes.header}>
         <Group justify="space-between" h="100%">
           <MantineLogo size={30} />

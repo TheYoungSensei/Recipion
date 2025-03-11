@@ -23,7 +23,7 @@ const RecipeList = ({ onDetails }) => {
   const { data, isPending, isFetching } = useRecipes()
 
   return (
-    <Grid>
+    <Grid style={{ marginRight: 16, marginLeft: 16 }}>
       {data?.map((recipe) => <Grid.Col span={2} key={recipe.id}><Recipe {...recipe} onDetails={onDetails} /></Grid.Col>)}
     </Grid>
   )

@@ -18,4 +18,7 @@ const useRecipes = () => {
   })
 }
 
-export { useRecipes, fetchRecipes }
+export { 
+  useRecipes,
+  fetchRecipes
+}
