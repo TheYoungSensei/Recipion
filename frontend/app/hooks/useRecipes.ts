@@ -18,7 +18,22 @@ const useRecipes = () => {
   })
 }
 
+const fetchRecipe = async (id: string): Promise<Recipe> => {
+  const response = await fetch(`http://127.0.0.1:8000/api/recipes/${id}`)
+  const data = await response.json()
+  return data
+}
+
+const useRecipe = (id: string) => {
+  return useQuery({
+    queryKey: [`recipe/${id}`],
+    queryFn: () => fetchRecipe(id),
+  })
+}
+
 export { 
   useRecipes,
-  fetchRecipes
+  useRecipe,
+  fetchRecipes,
+  fetchRecipe,
 }

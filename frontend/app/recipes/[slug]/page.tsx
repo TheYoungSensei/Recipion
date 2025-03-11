@@ -1,5 +1,8 @@
-//function generateStaticParams() {}
- 
-export default function Page() {
-  return <h1>Hello, Blog Post Page!</h1>
+import RecipeContainer from '../../ui/RecipeContainer'
+
+export default async  function Page({ params } : {
+  params: Promise<{ slug: string }>
+}) {
+  const { slug } = await params
+  return <RecipeContainer id={slug} />
 }

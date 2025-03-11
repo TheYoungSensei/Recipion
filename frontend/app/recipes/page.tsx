@@ -1,6 +1,6 @@
 import { QueryClient, dehydrate } from "@tanstack/react-query"
 
-import RecipeListContainer from "../ui/RecipeList"
+import RecipeListContainer from "../ui/RecipesContainer"
 import { fetchRecipes } from "../hooks/useRecipes"
 
 export default async function Page() {
