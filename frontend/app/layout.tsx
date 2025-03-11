@@ -6,7 +6,10 @@ import { Geist, Geist_Mono } from "next/font/google";
 import ReactQueryProvider from "./utils/providers/reactQueryProvider";
 import Header from "./components/Header";
 
-import '@mantine/core/styles.css';
+import '@mantine/core/styles.css'
+
+import '@mantinex/mantine-logo/styles.css'
+
 import "./globals.css";
 
 const geistSans = Geist({

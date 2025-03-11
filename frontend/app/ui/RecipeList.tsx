@@ -9,7 +9,7 @@ const RecipeListContainer = ({}) => {
   const router = useRouter()
 
   const handleOnDetails = (id) => {
-    router.push(`recipe/${id}`)
+    router.push(`recipes/${id}`)
   }
 
   return <RecipeList onDetails={handleOnDetails} />
