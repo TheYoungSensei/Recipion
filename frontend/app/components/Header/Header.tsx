@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from 'react'
 import {
   IconBook,
   IconChartPie3,
@@ -7,10 +8,21 @@ import {
   IconCode,
   IconCoin,
   IconFingerprint,
+  IconHeart,
+  IconLogout,
+  IconMessage,
   IconNotification,
+  IconPlayerPause,
+  IconPlus,
+  IconSettings,
+  IconStar,
+  IconSwitchHorizontal,
+  IconTrash
 } from '@tabler/icons-react';
+import cx from 'clsx';
 import {
   Anchor,
+  Avatar,
   Box,
   Burger,
   Button,
@@ -20,6 +32,7 @@ import {
   Drawer,
   Group,
   HoverCard,
+  Menu,
   ScrollArea,
   SimpleGrid,
   Text,
@@ -146,10 +159,7 @@ export const Header = () => {
             <Link className={classes.link} href="/recipes">Recipes</Link>
           </Group>
 
-          <Group visibleFrom="sm">
-            <Button variant="default">Log in</Button>
-            <Button>Sign up</Button>
-          </Group>
+          <RightSide />
 
           <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
         </Group>
@@ -188,14 +198,92 @@ export const Header = () => {
 
           <Divider my="sm" />
 
-          <Group justify="center" grow pb="xl" px="md">
-            <Button variant="default">Log in</Button>
-            <Button>Sign up</Button>
-          </Group>
+          <RightSide />
         </ScrollArea>
       </Drawer>
     </Box>
   );
+}
+
+const RightSide = () => {
+  const authenticated = true
+  const [userMenuOpened, setUserMenuOpened] = useState(false);
+  const theme = useMantineTheme();
+
+  if (authenticated) {
+    return (
+      <Menu
+        width={260}
+        position="bottom-end"
+        transitionProps={{ transition: 'pop-top-right' }}
+        onClose={() => setUserMenuOpened(false)}
+        onOpen={() => setUserMenuOpened(true)}
+        withinPortal
+      >
+        <Menu.Target>
+          <UnstyledButton
+            className={cx(classes.user, { [classes.userActive]: userMenuOpened })}
+          >
+            <Group gap={7}>
+              <Avatar radius="xl" size={24} />
+              <Text fw={500} size="sm" lh={1} mr={3}>
+                TEST
+              </Text>
+              <IconChevronDown size={12} stroke={1.5} />
+            </Group>
+          </UnstyledButton>
+        </Menu.Target>
+        <Menu.Dropdown>
+        <Menu.Item
+            leftSection={<IconPlus size={16} color={theme.colors.blue[6]} stroke={1.5} />}
+          >
+            Add a recipe
+          </Menu.Item>
+          <Menu.Item
+            leftSection={<IconHeart size={16} color={theme.colors.red[6]} stroke={1.5} />}
+          >
+            Liked posts
+          </Menu.Item>
+          <Menu.Item
+            leftSection={<IconStar size={16} color={theme.colors.yellow[6]} stroke={1.5} />}
+          >
+            Saved posts
+          </Menu.Item>
+          <Menu.Item
+            leftSection={<IconMessage size={16} color={theme.colors.blue[6]} stroke={1.5} />}
+          >
+            Your comments
+          </Menu.Item>
+
+          <Menu.Label>Settings</Menu.Label>
+          <Menu.Item leftSection={<IconSettings size={16} stroke={1.5} />}>
+            Account settings
+          </Menu.Item>
+          <Menu.Item leftSection={<IconSwitchHorizontal size={16} stroke={1.5} />}>
+            Change account
+          </Menu.Item>
+          <Menu.Item leftSection={<IconLogout size={16} stroke={1.5} />}>Logout</Menu.Item>
+
+          <Menu.Divider />
+
+          <Menu.Label>Danger zone</Menu.Label>
+          <Menu.Item leftSection={<IconPlayerPause size={16} stroke={1.5} />}>
+            Pause subscription
+          </Menu.Item>
+          <Menu.Item color="red" leftSection={<IconTrash size={16} stroke={1.5} />}>
+            Delete account
+          </Menu.Item>
+        </Menu.Dropdown>
+      </Menu>
+    )
+  }
+
+  return (
+    <Group justify="center" grow pb="xl" px="md">
+      <Button variant="default">Log in</Button>
+      <Button>Sign up</Button>
+    </Group>
+  )
 }
 
 export default Header
