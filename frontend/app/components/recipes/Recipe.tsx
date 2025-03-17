@@ -2,8 +2,12 @@
 
 import { useRecipe } from "../../hooks/useRecipes"
 
-const Recipe = ({ id }) => {
-  const { data, isPending, isFetching } = useRecipe(id)
+type TProps = {
+  id: string
+}
+
+const Recipe = ({ id }: TProps) => {
+  const { data } = useRecipe(id)
 
   return (
     <p>{JSON.stringify(data)}</p>

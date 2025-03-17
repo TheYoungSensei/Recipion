@@ -4,7 +4,7 @@ import pastryPng from '../../assets/icons/pastry.png'
 
 const PastryIcon = ({}) => {
   return (
-    <Image src={pastryPng} alt='Pastry' height={24} width={24} />
+    <Image src={pastryPng} alt='Pastry' height={20} width={20} />
   )
 }
 

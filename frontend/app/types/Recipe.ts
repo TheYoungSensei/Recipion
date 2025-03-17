@@ -1,6 +1,7 @@
 export type Recipe = {
   title: string
+  subTitle: string
   id: string
   text: string
-  cover_image?: string
+  coverImage?: string
 }

@@ -11,11 +11,13 @@ type TProps = {
 }
 
 const RecipeListItem = ({ recipe, onDetails }: TProps) => {
+  if (!recipe) return null
+  console.log(recipe)
   return (
     <Card shadow="sm" padding="lg" radius="md" withBorder>
-      {recipe.cover_image && <Card.Section>
+      {recipe.coverImage && <Card.Section>
         <Image
-          src={`http://127.0.0.1:8000${recipe.cover_image}`}
+          src={`http://127.0.0.1:8000${recipe.coverImage}`}
           
           alt={recipe.title}
         />
@@ -25,7 +27,7 @@ const RecipeListItem = ({ recipe, onDetails }: TProps) => {
         <PastryIcon />
       </Group>
       <Text size="sm" c="dimmed">
-        {recipe.text}
+        {recipe.subTitle}
       </Text>
       <Button
         variant="gradient"
