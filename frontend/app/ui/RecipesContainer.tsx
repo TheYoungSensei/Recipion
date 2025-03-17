@@ -3,7 +3,7 @@
 
 import { useRouter } from 'next/navigation'
 
-import RecipeList from "../components/RecipeList"
+import RecipeList from "../components/recipes/RecipeList"
 
 const RecipeListContainer = ({}) => {
   const router = useRouter()

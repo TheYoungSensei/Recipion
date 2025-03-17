@@ -1,9 +1,5 @@
 import { useQuery } from "@tanstack/react-query"
-
-type Recipe = {
-  id: number
-  title: string
-}
+import { Recipe } from '../types/Recipe'
 
 const fetchRecipes = async (): Promise<Array<Recipe>> => {
   const response = await fetch('http://127.0.0.1:8000/api/recipes')

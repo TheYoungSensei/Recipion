@@ -1,6 +1,6 @@
 "use client"
 
-import Recipe from '../components/Recipe'
+import Recipe from '../components/recipes/Recipe'
 
 const RecipeContainer = ({ id }: { id: string }) => {
 

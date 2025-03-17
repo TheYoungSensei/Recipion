@@ -1,6 +1,6 @@
 "use client"
 
-import { useRecipe } from "../hooks/useRecipes"
+import { useRecipe } from "../../hooks/useRecipes"
 
 const Recipe = ({ id }) => {
   const { data, isPending, isFetching } = useRecipe(id)

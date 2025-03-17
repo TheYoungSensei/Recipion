@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 
 import ReactQueryProvider from "./utils/providers/reactQueryProvider";
-import Header from "./components/Header";
+import Header from "./components/header";
 
 import '@mantine/core/styles.css'
 
