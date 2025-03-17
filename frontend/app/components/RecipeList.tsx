@@ -1,14 +1,25 @@
 "use client";
 
 import React from 'react'
-import { Grid, Card, Text, Button } from '@mantine/core'
+import { Grid, Group, Card, Text, Button, Image } from '@mantine/core'
 
 import { useRecipes } from '../hooks/useRecipes'
+import PastryIcon from './icons/PastryIcon';
 
-const Recipe = ({ title, id, text, onDetails }) => {
+const Recipe = ({ title, id, text, onDetails, cover_image }) => {
   return (
     <Card shadow="sm" padding="lg" radius="md" withBorder>
-      <Text fw={500}>{title}</Text>
+      {cover_image && <Card.Section>
+        <Image
+          src={`http://127.0.0.1:8000${cover_image}`}
+          
+          alt={title}
+        />
+      </Card.Section>}
+      <Group justify="space-between" mt="md" mb="xs">
+        <Text fw={500}>{title}</Text>
+        <PastryIcon />
+      </Group>
       <Text size="sm" c="dimmed">
         {text}
       </Text>
@@ -24,7 +35,7 @@ const RecipeList = ({ onDetails }) => {
 
   return (
     <Grid style={{ marginRight: 16, marginLeft: 16 }}>
-      {data?.map((recipe) => <Grid.Col span={2} key={recipe.id}><Recipe {...recipe} onDetails={onDetails} /></Grid.Col>)}
+      {data?.map((recipe) => <Grid.Col span={3} key={recipe.id}><Recipe {...recipe} onDetails={onDetails} /></Grid.Col>)}
     </Grid>
   )
 }
