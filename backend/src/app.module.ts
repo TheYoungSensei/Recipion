@@ -8,15 +8,11 @@ import { RecipesModule } from './recipes/recipes.module';
 @Module({
   imports: [
     MongooseModule.forRoot(
-      'mongodb+srv://sacrechristopher:2c1DPnr6hg6t6Hwb@recipion.zdpj6.mongodb.net/?appName=recipion',
+      'mongodb+srv://sacrechristopher:2c1DPnr6hg6t6Hwb@recipion.zdpj6.mongodb.net/?retryWrites=true&w=majority&appName=recipion',
     ),
-    RecipesModule
+    RecipesModule,
   ],
-  controllers: [
-    AppController
-  ],
-  providers: [
-    AppService
-  ],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}

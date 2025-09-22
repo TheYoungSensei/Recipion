@@ -9,6 +9,6 @@ export class RecipesController {
 
   @Get()
   findAll(): Promise<Recipe[]> {
-    return this.recipesService.findAll()
+    return this.recipesService.findAll();
   }
 }
