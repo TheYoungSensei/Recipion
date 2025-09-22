@@ -15,4 +15,12 @@ export class RecipesService {
   async findAll(): Promise<Recipe[]> {
     return this.recipeModel.find().exec();
   }
+
+  async findById(id: string): Promise<Recipe | null> {
+    return this.recipeModel.findById(id);
+  }
+
+  async delete(id: string): Promise<Recipe | null> {
+    return this.recipeModel.findOneAndDelete({ _id: id });
+  }
 }

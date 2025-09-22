@@ -5,13 +5,13 @@ export type RecipeDocument = HydratedDocument<Recipe>;
 
 @Schema()
 export class Recipe {
-  @Prop()
+  @Prop({ required: true })
   title: string;
 
   @Prop()
   stars: number;
 
-  @Prop()
+  @Prop({ required: true })
   subTitle: string;
 
   @Prop()
